@@ -1,13 +1,16 @@
 Package: fyrtaarn
-Title: What the Package Does (One Line, Title Case)
+Title: Anaysis of data on injuries
 Version: 0.0.0.9000
 Authors@R: 
     person("Yusman", "Kamaleri", , "ybka@fhi.no", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-5014-3665"))
-Description: What the package does (one paragraph).
+Description: This package help in running analysis on injuries from NPR and KPR data.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
 Imports: 
     data.table (>= 1.15.2)
+VignetteBuilder: knitr
+Suggests: 
+    knitr
