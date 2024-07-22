@@ -6,11 +6,15 @@ Authors@R:
            comment = c(ORCID = "0000-0001-5014-3665"))
 Description: This package help in running analysis on injuries from NPR and KPR data.
 License: MIT + file LICENSE
+URL: https://fyrtaarn.github.io/fyrtaarn/
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
+Depends:
+    R (>= 4.1.0)
 Imports: 
-    data.table (>= 1.15.2)
+    data.table (>= 1.15.2),
+    methods
 VignetteBuilder: knitr
 Suggests: 
-    knitr
+    knitr, tinytest
