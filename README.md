@@ -1,3 +1,5 @@
+# fyrtaarn <img src='man/figures/fyrtaarn_logo.png' align="right" width="120" height="139" />
+
 ## Intro
 
 Register data from [Norsk pasientregister](https://www.fhi.no/he/npr/)
