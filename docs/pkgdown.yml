@@ -1,9 +1,8 @@
-pandoc: 3.1.13
-pkgdown: 2.0.9
+pandoc: 3.2.1
+pkgdown: 2.1.0
 pkgdown_sha: ~
 articles: {}
-last_built: 2024-06-11T11:37Z
+last_built: 2024-07-24T14:52Z
 urls:
-  reference: https://github.com/fyrtaarn/fyrtaarn/tree/main/reference
-  article: https://github.com/fyrtaarn/fyrtaarn/tree/main/articles
-
+  reference: https://fyrtaarn.github.io/fyrtaarn/reference
+  article: https://fyrtaarn.github.io/fyrtaarn/articles

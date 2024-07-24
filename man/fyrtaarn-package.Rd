@@ -11,6 +11,13 @@ This package help in running analysis on injuries from NPR and KPR data.
 \details{
 Analysis of data on injuries from NPR and KPR data
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://fyrtaarn.github.io/fyrtaarn/}
+}
+
+}
 \author{
 \strong{Maintainer}: Yusman Kamaleri \email{ybka@fhi.no} (\href{https://orcid.org/0000-0001-5014-3665}{ORCID})
 
