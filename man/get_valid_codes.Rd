@@ -2,7 +2,7 @@
 % Please edit documentation in R/valid-codes.R
 \name{get_valid_codes}
 \alias{get_valid_codes}
-\title{Get valide codes}
+\title{Get valid codes}
 \usage{
 get_valid_codes(
   d,

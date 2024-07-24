@@ -1,4 +1,4 @@
-#' @title Get valide codes
+#' @title Get valid codes
 #'
 #' @description Select codes from column consisting ICD-10 codes that meet the requirement for injury codes ie. between S00 to T78
 #' @param d Dataset
