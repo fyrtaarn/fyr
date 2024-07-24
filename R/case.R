@@ -1,9 +1,9 @@
 #' Find cases
 #'
-#' Identify cases from FMDS dataset. Three possible methods is used:
+#' Identify cases from FMDS dataset. Three possible methods are used:
 #' 1. Keep only those that are found in FMDS and those found in both FMDS and Somatic when the date and health institution are matched
 #' 2. If multiple registeries in FMDS with similar dates and health institution, then keep the earlier date
-#' 3. If mulitple registeries in FMDS with same date but different health institutions, check with Somatic data. Matching
+#' 3. If mulitple registeries in FMDS with same date **BUT** different health institutions, check with Somatic data. Matching
 #'    health institution will be kept.
 #'
 #' @param d1 Dataset for FMDS ie. external explanation for injury

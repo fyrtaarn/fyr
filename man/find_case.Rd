@@ -40,11 +40,11 @@ A dataset with a DELXX column to indicate non-cases with value 1 if argument \co
 the output will include all variables needed to create DELXX.
 }
 \description{
-Identify cases from FMDS dataset. Three possible methods is used:
+Identify cases from FMDS dataset. Three possible methods are used:
 \enumerate{
 \item Keep only those that are found in FMDS and those found in both FMDS and Somatic when the date and health institution are matched
 \item If multiple registeries in FMDS with similar dates and health institution, then keep the earlier date
-\item If mulitple registeries in FMDS with same date but different health institutions, check with Somatic data. Matching
+\item If mulitple registeries in FMDS with same date \strong{BUT} different health institutions, check with Somatic data. Matching
 health institution will be kept.
 }
 }
