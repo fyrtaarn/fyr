@@ -7,6 +7,7 @@ Authors@R:
 Description: This package help in running analysis on injuries from NPR and KPR data.
 License: MIT + file LICENSE
 URL: https://fyrtaarn.github.io/fyrtaarn/
+BugReports: https://github.com/fyrtaarn/fyrtaarn/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2

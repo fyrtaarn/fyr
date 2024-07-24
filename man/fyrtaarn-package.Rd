@@ -15,6 +15,7 @@ Analysis of data on injuries from NPR and KPR data
 Useful links:
 \itemize{
   \item \url{https://fyrtaarn.github.io/fyrtaarn/}
+  \item Report bugs at \url{https://github.com/fyrtaarn/fyrtaarn/issues}
 }
 
 }
