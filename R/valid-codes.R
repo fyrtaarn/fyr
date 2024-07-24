@@ -1,5 +1,6 @@
 #' @title Get valide codes
-#' Select codes from column consisting ICD-10 codes that meet the requirement for injury codes ie. between S00 to T78
+#'
+#' @description Select codes from column consisting ICD-10 codes that meet the requirement for injury codes ie. between S00 to T78
 #' @param d Dataset
 #' @param select.col Columnames from dataset with ICD codes to be controlled for. Default is `hoveddiagnoser`
 #' @param create.col New columnames consisting logical value to indicate that at least one

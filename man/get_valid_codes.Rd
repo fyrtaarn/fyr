@@ -2,8 +2,7 @@
 % Please edit documentation in R/valid-codes.R
 \name{get_valid_codes}
 \alias{get_valid_codes}
-\title{Get valide codes
-Select codes from column consisting ICD-10 codes that meet the requirement for injury codes ie. between S00 to T78}
+\title{Get valide codes}
 \usage{
 get_valid_codes(
   d,
@@ -27,7 +26,6 @@ is between S00 to T78. Default is \code{hovdiag}}
 Original column will have suffix \verb{*.old}
 }
 \description{
-Get valide codes
 Select codes from column consisting ICD-10 codes that meet the requirement for injury codes ie. between S00 to T78
 }
 \examples{
