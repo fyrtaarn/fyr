@@ -10,7 +10,7 @@ devtools::check()
 # Run once to configure your package to use pkgdown
 usethis::use_pkgdown()
 
-
+unloadNamespace("fyrtaarn")
 pkgdown::build_site()
 pkgdown::preview_site()
 pkgdown::build_news(preview = TRUE)
