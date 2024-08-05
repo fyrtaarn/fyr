@@ -1,4 +1,4 @@
-Package: fyrtaarn
+Package: fyr
 Title: Anaysis of data on injuries
 Version: 0.0.0.9000
 Authors@R: 
@@ -6,8 +6,8 @@ Authors@R:
            comment = c(ORCID = "0000-0001-5014-3665"))
 Description: This package help in running analysis on injuries from NPR and KPR data.
 License: MIT + file LICENSE
-URL: https://fyrtaarn.github.io/fyrtaarn/
-BugReports: https://github.com/fyrtaarn/fyrtaarn/issues
+URL: https://fyrtaarn.github.io/fyr/
+BugReports: https://github.com/fyrtaarn/fyr/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2

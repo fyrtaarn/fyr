@@ -1,4 +1,4 @@
-# fyrtaarn <img src='man/figures/fyrtaarn_logo.png' align="right" width="120" height="139" />
+# fyr <img src='man/figures/fyr_logo.png' align="right" width="120" height="139" />
 
 ## Intro
 
@@ -11,11 +11,11 @@ this challenge.
 
 ## Installation
 
-To install `fyrtaarn` package can be done as follows:
+To install `fyr` package can be done as follows:
 
 ``` r
 if(!require(pak)) install.packages("pak")
-pak::pkg_install("fyrtaarn/fyrtaarn")
+pak::pkg_install("fyrtaarn/fyr")
 ```
 
 ## Usage
