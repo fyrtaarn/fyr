@@ -3,7 +3,8 @@ url: https://fyrtaarn.github.io/fyr
 
 authors:
   Yusman Kamaleri:
-    href: https://www.fhi.no/en/about/departments-and-centres/health-and-inequality/yusman-bin-kamaleri/
+    href:
+      https://www.fhi.no/en/about/departments-and-centres/health-and-inequality/yusman-bin-kamaleri/
 
 template:
   bootstrap: 5

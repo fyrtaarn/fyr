@@ -7,8 +7,8 @@ devtools::document()
 devtools::check()
 
 
-# Run once to configure your package to use pkgdown
-usethis::use_pkgdown()
+# #Run once to configure your package to use pkgdown
+# usethis::use_pkgdown()
 
 unloadNamespace("fyr")
 pkgdown::build_site()

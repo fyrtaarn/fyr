@@ -1,10 +1,10 @@
-#' Find cases
+#' Find external causes for cases
 #'
-#' Identify cases from FMDS dataset. Three possible methods are used:
-#' 1. Keep only those that are found in FMDS and those found in both FMDS and Somatic when the date and health institution are matched
-#' 2. If multiple registeries in FMDS with similar dates and health institution, then keep the earlier date
-#' 3. If mulitple registeries in FMDS with same date **BUT** different health institutions, check with Somatic data. Matching
-#'    health institution will be kept.
+#' Identify unique external causes of injury cases based on FMDS dataset. Three possible methods are used:
+#' 1. Keep only those that are found in FMDS, and those found in both FMDS and Somatic when the date and health institution are matched
+#' 2. If multiple registeries in FMDS with similar dates and health institution identified, then keep the earlier date
+#' 3. If mulitple registeries in FMDS with same date **BUT** different health institutions identified, then check
+#'    health institution in Somatic data. Matching health institution will be kept.
 #'
 #' @param d1 Dataset for FMDS ie. external explanation for injury
 #' @param d2 Dataset for NPR ie. intery registration for injury
@@ -12,25 +12,25 @@
 #' @param skade Coloumn name for date of injury
 #' @param rhf Coloumn name for health institutions
 #' @param filter Column name for filtering inclusion and exclusion ie. `is.na(filter)`
-#' @param days A selected time period to consider as similar injury eg. 3 days
+#' @param days A selected time period to consider as similar injury. Default is 3 days
 #' @param verbose Keep variables for making the selection ie. xx.VariableName to produce DELXX
 #' @param clean Delete all the possible duplicated cases
 #' @return A dataset with a DELXX column to indicate non-cases with value 1 if argument `clean = FALSE`. But if `verbose = TRUE`
 #' the output will include all variables needed to create DELXX.
 #' @examples
 #' \dontrun{
-#'  dd <- find_case(d1, d2)
+#'  dd <- find_cause(d1, d2)
 #' }
 #' @import data.table
 #' @export
-find_case <- function(d1, d2,
-                      id = "lopenr",
-                      skade = "skadeDato",
-                      rhf = "helseforetak_nr",
-                      filter = NULL,
-                      days = 3,
-                      verbose = FALSE,
-                      clean = FALSE){
+find_cause <- function(d1, d2,
+                       id = "lopenr",
+                       skade = "skadeDato",
+                       rhf = "helseforetak_nr",
+                       filter = NULL,
+                       days = 3,
+                       verbose = FALSE,
+                       clean = FALSE){
 
   DELXX <- NULL
 
