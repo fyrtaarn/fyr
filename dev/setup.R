@@ -21,3 +21,12 @@ usethis::use_package("knitr", "Suggests")
 usethis::use_package("data.table", min_version = TRUE)
 
 usethis::use_build_ignore("dev")
+
+
+
+## Data
+pth <- "f:/Forskningsprosjekter/PDB 3327 - Skader i Norge analy_"
+som <- fread(paste0(pth, "/Data/02_extracted/NPR20240711/24_01903_som_til_utlevering.csv"), encoding = "Latin-1")
+
+som[, yr := year(innDato)]
+dt <- som[yr == 2024]
