@@ -39,11 +39,11 @@ get_valid_codes <- function(d, select.col = "hoveddiagnoser", create.col = "hovd
   dx[, (tempCol) := do.call(paste, c(replace(.SD, is.na(.SD), ""), sep = " ")), .SDcols = cols]
 
   # Select only these codes S00 til T78
-  codeURL <- system.file("icd", "validCodes.RDS", package = "fyrtaarn")
+  codeURL <- system.file("icd", "validCodes.RDS", package = "fyr")
   codes <- readRDS(codeURL)
 
   for (j in cols){
-    if (methods::is(dx[[j]], "character"))
+    if (is.character(dx[[j]]))
       data.table::set(dx, j = j, value = dx[[j]] %chin% codes)
   }
 
