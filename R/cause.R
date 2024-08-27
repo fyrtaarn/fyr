@@ -2,12 +2,12 @@
 #'
 #' Identify unique external causes of injury cases based on FMDS dataset. Three possible methods are used:
 #' 1. Keep only those that are found in FMDS, and those found in both FMDS and Somatic when the date and health institution are matched
-#' 2. If multiple registeries in FMDS with similar dates and health institution identified, then keep the earlier date
+#' 2. If multiple registeries in FMDS with similar dates and health institution identified, then keep the earlier based on time
 #' 3. If mulitple registeries in FMDS with same date **BUT** different health institutions identified, then check
 #'    health institution in Somatic data. Matching health institution will be kept.
 #'
 #' @param d1 Dataset for FMDS ie. external explanation for injury
-#' @param d2 Dataset for NPR ie. intery registration for injury
+#' @param d2 Dataset for NPR ie. entry registration for injury
 #' @param id Unique patient identity
 #' @param skade Coloumn name for date of injury
 #' @param rhf Coloumn name for health institutions
