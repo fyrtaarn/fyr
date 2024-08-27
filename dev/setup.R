@@ -28,5 +28,10 @@ usethis::use_build_ignore("dev")
 pth <- "f:/Forskningsprosjekter/PDB 3327 - Skader i Norge analy_"
 som <- fread(paste0(pth, "/Data/02_extracted/NPR20240711/24_01903_som_til_utlevering.csv"), encoding = "Latin-1")
 
+# Duplikater ---------
+dim(som)
+som[duplicated(som), .N]
+dt1 <- som[!duplicated(som)]
+dim(dt1)
 som[, yr := year(innDato)]
 dt <- som[yr == 2024]
