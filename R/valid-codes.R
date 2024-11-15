@@ -6,7 +6,7 @@
 #' @param create.col New columnames consisting logical value to indicate that at least one
 #' of these codes S00 to T78 exists ie. TRUE means one or more of the codes in `select.col`
 #' is between S00 to T78. Default is `hovdiag`
-#' @param split Symbols for splitting the codes when there are multiple codes in the column
+#' @param split Symbols for splitting the codes when there are multiple codes in the column. Default is whitespace ie. `" "`
 #' @return Original column will have suffix `*.old`
 #' @examples
 #' \dontrun{
