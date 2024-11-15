@@ -1,8 +1,8 @@
-pandoc: 3.2.1
-pkgdown: 2.1.0
+pandoc: '3.4'
+pkgdown: 2.1.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2024-08-27T14:19Z
+last_built: 2024-11-15T09:36Z
 urls:
   reference: https://fyrtaarn.github.io/fyr/reference
   article: https://fyrtaarn.github.io/fyr/articles

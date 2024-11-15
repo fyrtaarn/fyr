@@ -20,7 +20,7 @@ get_valid_codes(
 of these codes S00 to T78 exists ie. TRUE means one or more of the codes in \code{select.col}
 is between S00 to T78. Default is \code{hovdiag}}
 
-\item{split}{Symbols for splitting the codes when there are multiple codes in the column}
+\item{split}{Symbols for splitting the codes when there are multiple codes in the column. Default is whitespace ie. \code{" "}}
 }
 \value{
 Original column will have suffix \verb{*.old}
