@@ -43,8 +43,8 @@ the output will include all variables needed to create DELXX.
 Identify unique external causes of injury cases based on FMDS dataset. Three possible methods are used:
 \enumerate{
 \item Keep only those that are found in FMDS, and those found in both FMDS and Somatic when the date and health institution are matched
-\item If multiple registeries in FMDS with similar dates and health institution identified, then keep the earlier based on time
-\item If mulitple registeries in FMDS with same date \strong{BUT} different health institutions identified, then check
+\item If multiple registries in FMDS with similar dates and health institution identified, then keep the earlier based on time
+\item If mulitple registries in FMDS with same date \strong{BUT} different health institutions identified, then check
 health institution in Somatic data. Matching health institution will be kept.
 }
 }
