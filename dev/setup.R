@@ -7,7 +7,7 @@ devtools::document()
 devtools::check()
 
 
-# #Run once to configure your package to use pkgdown
+#Run once to configure your package to use pkgdown
 # usethis::use_pkgdown()
 
 unloadNamespace("fyr")
@@ -33,7 +33,7 @@ fmd <- readRDS(file.path(pth, "Data/test/test_fmds.rds"))
 som <- readRDS(file.path(pth, "Data/test/test_somatic.rds"))
 
 ## Duplikater ---------
-dim()
+dim(fmd)
 [duplicated(), .N]
 dt1 <- [!duplicated()]
 dim(dt1)
