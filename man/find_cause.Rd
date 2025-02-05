@@ -27,24 +27,28 @@ find_cause(
 
 \item{rhf}{Coloumn name for health institutions}
 
-\item{filter}{Column name for filtering inclusion and exclusion ie. \code{is.na(filter)}}
+\item{filter}{Column name for filtering inclusion and exclusion ie.
+\code{is.na(filter)}}
 
-\item{days}{A selected time period to consider as similar injury. Default is 3 days}
+\item{days}{A selected time period to consider as similar injury. Default is
+3 days}
 
-\item{verbose}{Keep variables for making the selection ie. xx.VariableName to produce DELXX}
+\item{verbose}{Keep variables for making the selection ie. xx.VariableName to
+produce DELXX}
 
 \item{clean}{Delete all the possible duplicated cases}
 }
 \value{
-A dataset with a DELXX column to indicate non-cases with value 1 if argument \code{clean = FALSE}. But if \code{verbose = TRUE}
-the output will include all variables needed to create DELXX.
+A dataset with a DELXX column is created indicating non-cases ie.
+\code{DELXX = 1}. Use argument \code{verbose = TRUE} to include the columns
+needed for crating DELXX column. Argument \code{clean = TRUE} will exclude all \code{DELXX == 1}.
 }
 \description{
 Identify unique external causes of injury cases based on FMDS dataset. Three possible methods are used:
 \enumerate{
 \item Keep only those that are found in FMDS, and those found in both FMDS and Somatic when the date and health institution are matched
 \item If multiple registries in FMDS with similar dates and health institution identified, then keep the earlier based on time
-\item If mulitple registries in FMDS with same date \strong{BUT} different health institutions identified, then check
+\item If multiple registries in FMDS with same date \strong{BUT} different health institutions identified, then check
 health institution in Somatic data. Matching health institution will be kept.
 }
 }

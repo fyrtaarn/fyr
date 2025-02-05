@@ -1,20 +1,27 @@
-#' Define injury dup or episode. Generally an episode shoulde be:
-#' - Main diagnosis is between S00 to T78
-#' - It's an acute injury ie. hastegrad is 1
-#' - Posibility to select days from previous to the following injury of similar code for multiple injuries
+#' Define injury dup or episode. Generally an episode shoulde be: - Main
+#' diagnosis is between S00 to T78 - It's an acute injury ie. hastegrad is 1 -
+#' Posibility to select days from previous to the following injury of similar
+#' code for multiple injuries
 #' @param d Dataset that contain ICD-10 diagnosis codes
 #' @param period Representing 4-months period ie. first, second or third.
 #'   Default is 0 to include data for the whole period else use 1, 2 or 3.
 #' @param date.col Columname for date for filtering
 #' @param id Columname representing unique id
-#' @param acute Default is `FALSE`. Use `TRUE` to include only acute patients ie. Hastegrad = 1
-#' @param days If diffence in days of registration should be considered ie. when a person has
-#'   more than one registered injuries of the same ICD-10 code. This is to avoid counting similar injuries more than once.
+#' @param acute Default is `FALSE`. Use `TRUE` to include only acute patients
+#'   ie. Hastegrad = 1
+#' @param days If diffence in days of registration should be considered ie. when
+#'   a person has more than one registered injuries of the same ICD-10 code.
+#'   This is to avoid counting similar injuries more than once.
 #' @param diag.col Columname of codes for main diagnosis
-#' @return
+#' @return When the value for arg `days` is other than `0`, a new column called
+#'   `dup` is created ie. duplicated cases. Hence `dup == 1` indicates the row is
+#'   duplicated with the specified days.
 #' @examples
-#' dd <- find_episode(dt1, period = 1:2, acute = TRUE)
-#' dd <- find_episode(dt1, acute = TRUE, days = 3)
+#' \dontrun{
+#' dd <- count_case(dt1, period = 1:2, acute = TRUE)
+#' dd <- count_case(dt1, acute = TRUE, days = 3)
+#' }
+#' @export
 
 count_case <- function(d, period = 0,
                          id = "lopenr",
@@ -22,6 +29,8 @@ count_case <- function(d, period = 0,
                          acute = FALSE,
                          days = 0,
                          diag.col = "hoveddiagnoser"){
+
+  d.month <- x <- d.tertial <- hovdiag <- Hastegrad <- NULL
 
   d <- data.table::copy(d)
 
@@ -52,7 +61,7 @@ count_case <- function(d, period = 0,
   # Get difference in days from previous to the following injuries when
   # multiple injuries are registered
   if (days != 0){
-    d[, days := x - data.table::shift(x, type = "lag"), by = .(id, col), env = list(x = date.col, id = id, col = diag.col)]
+    d[, days := x - data.table::shift(x, type = "lag"), by = list(id, col), env = list(x = date.col, id = id, col = diag.col)]
     d <- check_codes(d = d, id = id, col = diag.col, days = days)
   }
 
@@ -74,11 +83,17 @@ count_case <- function(d, period = 0,
 #' @return A dataset with extra columname ie. `dup`. When `dup == 1` indicates the row is duplicated
 #' with the specified period
 #' @examples
+#' \dontrun{
 #' dj <- check_codes(dx, "lopenr", "hoveddiagnoser", 3)
+#' }
+#' @keywords internal
+
 check_codes <- function(d, id = "lopenr", col = "hoveddiagnoser", days){
 
+  dx <- x <- y <- dup <- dag <- NULL
+
   d[, dx := data.table::shift(x, fill = NA, type = "lag"), env = list(x = col)]
-  d[, dup := data.table::fifelse(days <= dag & x == dx, 1, 0), by = .(y, x),
+  d[, dup := data.table::fifelse(days <= dag & x == dx, 1, 0), by = list(y, x),
     env = list(dag = days, x = col, y = id)]
 
   d[is.na(dup), dup := 0]
