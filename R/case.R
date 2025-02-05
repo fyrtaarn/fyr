@@ -1,7 +1,9 @@
-#' Define injury dup or episode. Generally an episode shoulde be: - Main
-#' diagnosis is between S00 to T78 - It's an acute injury ie. hastegrad is 1 -
-#' Posibility to select days from previous to the following injury of similar
-#' code for multiple injuries
+#' @title Count cases
+#' @description Count injury cases or episodes. Generally an episode shoulde be:
+#'   - Main diagnosis is between S00 to T78
+#'   - It's an acute injury ie. hastegrad is 1
+#'   - Posibility to select days from previous to the following injury of similar
+#'     code for multiple injuries
 #' @param d Dataset that contain ICD-10 diagnosis codes
 #' @param period Representing 4-months period ie. first, second or third.
 #'   Default is 0 to include data for the whole period else use 1, 2 or 3.
@@ -15,7 +17,7 @@
 #' @param diag.col Columname of codes for main diagnosis
 #' @return When the value for arg `days` is other than `0`, a new column called
 #'   `dup` is created ie. duplicated cases. Hence `dup == 1` indicates the row is
-#'   duplicated with the specified days.
+#'   duplicated as defined within the specified days.
 #' @examples
 #' \dontrun{
 #' dd <- count_case(dt1, period = 1:2, acute = TRUE)

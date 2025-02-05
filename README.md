@@ -19,3 +19,21 @@ pak::pkg_install("fyrtaarn/fyr")
 ```
 
 ## Usage
+
+To count injury cases, use function `count_case()`.
+
+``` r
+count_case(
+  d,
+  period = 0,
+  id = "lopenr",
+  date.col = "innDato",
+  acute = FALSE,
+  days = 0,
+  diag.col = "hoveddiagnoser"
+)
+```
+
+See under
+[References](https://fyrtaarn.github.io/fyr/reference/index.html) for
+other functions.
