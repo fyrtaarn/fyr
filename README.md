@@ -23,7 +23,7 @@ pak::pkg_install("fyrtaarn/fyr")
 To count injury cases, use function `count_case()`.
 
 ``` r
-count_case(
+dt <- count_case(
   d,
   period = 0,
   id = "lopenr",
