@@ -4,12 +4,21 @@
 \alias{is_same_dates}
 \title{Same date}
 \usage{
-is_same_dates(d1, d2)
+is_same_dates(
+  d1,
+  d2,
+  key1 = c("lopenr", "skadeDato"),
+  key2 = c("lopenr", "innDato")
+)
 }
 \arguments{
 \item{d1}{FMDS dataset}
 
 \item{d2}{Somatic dataset}
+
+\item{key1}{Columnames in \code{d1} for sorting the data. Default are \code{lopenr} and \code{skadeDato}}
+
+\item{key2}{Columnames in \code{d2} for sorting the data. Default are \code{lopenr} and \code{innDato}}
 }
 \description{
 Keeping cases with similar date and health institution in FMDS and Somatic data only.

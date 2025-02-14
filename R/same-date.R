@@ -3,17 +3,18 @@
 #' Nevertheless, patients registered in FMDS that aren't found in Somatic data will be kept.
 #' @param d1 FMDS dataset
 #' @param d2 Somatic dataset
+#' @param key1 Columnames in `d1` for sorting the data. Default are `lopenr` and `skadeDato`
+#' @param key2 Columnames in `d2` for sorting the data. Default are `lopenr` and `innDato`
 #' @export
-is_same_dates <- function(d1, d2){
+is_same_dates <- function(d1, d2,
+                          key1 = c("lopenr", "skadeDato"),
+                          key2 = c("lopenr", "innDato")){
 
   lopenr <- xx.fmds <- helseforetak_nr <- i.helseforetak_nr <- NULL
 
-  keyFMDS <- c("lopenr", "skadeDato")
-  keySOM <- c("lopenr", "innDato")
-
   d1 <- data.table::copy(d1)
-  data.table::setkeyv(d1, keyFMDS )
-  data.table::setkeyv(d2, keySOM)
+  data.table::setkeyv(d1, key1 )
+  data.table::setkeyv(d2, key2)
 
   lnr <- "lineNo"
   # Needs linenumber to select cases
@@ -32,5 +33,5 @@ is_same_dates <- function(d1, d2){
 
   d1 <- data.table::rbindlist(list(d1, dx), fill = TRUE)
   d1[, (lnr) := NULL]
-  data.table::setkeyv(d1, keyFMDS)
+  data.table::setkeyv(d1, key1)
 }
