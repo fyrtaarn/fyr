@@ -8,7 +8,8 @@ get_valid_codes(
   d,
   select.col = "hoveddiagnoser",
   create.col = "hovdiag",
-  split = " "
+  split = " ",
+  keep = FALSE
 )
 }
 \arguments{
@@ -21,9 +22,11 @@ of these codes S00 to T78 exists ie. TRUE means one or more of the codes in \cod
 is between S00 to T78. Default is \code{hovdiag}}
 
 \item{split}{Symbols for splitting the codes when there are multiple codes in the column. Default is whitespace ie. \code{" "}}
+
+\item{keep}{Split multiple codes and keep in its own column. Default is FALSE.}
 }
 \value{
-Original column will have suffix \verb{*.old}
+Original column will have suffix \verb{*.old}.
 }
 \description{
 Select codes from column consisting ICD-10 codes that meet the requirement for injury codes ie. between S00 to T78

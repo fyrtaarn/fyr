@@ -7,14 +7,15 @@
 #' of these codes S00 to T78 exists ie. TRUE means one or more of the codes in `select.col`
 #' is between S00 to T78. Default is `hovdiag`
 #' @param split Symbols for splitting the codes when there are multiple codes in the column. Default is whitespace ie. `" "`
-#' @return Original column will have suffix `*.old`
+#' @param keep Split multiple codes and keep in its own column. Default is FALSE.
+#' @return Original column will have suffix `*.old`.
 #' @examples
 #' \dontrun{
 #' d1 <- get_valid_codes(dt = dd, "hoveddiagnoser", "hovdiag")
 #' }
 #' @export
 
-get_valid_codes <- function(d, select.col = "hoveddiagnoser", create.col = "hovdiag", split = " "){
+get_valid_codes <- function(d, select.col = "hoveddiagnoser", create.col = "hovdiag", split = " ", keep = FALSE){
 
   col1 <- colnr <- lnr <- old <- NULL
   dx <- data.table::copy(d)
@@ -55,5 +56,9 @@ get_valid_codes <- function(d, select.col = "hoveddiagnoser", create.col = "hovd
   dx[col == "" | is.na(old), (select.col) := NA, env = list(col = select.col, old = oldCol)]
 
   xcols <- c("colnr", "lnr", cols)
+
+  if (keep)
+    xcols <- c("colnr", "lnr")
+
   dx[, (xcols) := NULL][]
 }
