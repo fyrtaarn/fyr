@@ -43,7 +43,8 @@
 <span>  <span class="va">d</span>,</span>
 <span>  select.col <span class="op">=</span> <span class="st">"hoveddiagnoser"</span>,</span>
 <span>  create.col <span class="op">=</span> <span class="st">"hovdiag"</span>,</span>
-<span>  split <span class="op">=</span> <span class="st">" "</span></span>
+<span>  split <span class="op">=</span> <span class="st">" "</span>,</span>
+<span>  keep <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -68,10 +69,14 @@ is between S00 to T78. Default is <code>hovdiag</code></p></dd>
 <dt id="arg-split">split<a class="anchor" aria-label="anchor" href="#arg-split"></a></dt>
 <dd><p>Symbols for splitting the codes when there are multiple codes in the column. Default is whitespace ie. <code>" "</code></p></dd>
 
+
+<dt id="arg-keep">keep<a class="anchor" aria-label="anchor" href="#arg-keep"></a></dt>
+<dd><p>Split multiple codes and keep in its own column. Default is FALSE.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Original column will have suffix <code>*.old</code></p>
+    <p>Original column will have suffix <code>*.old</code>.</p>
     </div>
 
     <div class="section level2">
