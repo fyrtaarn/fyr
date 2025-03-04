@@ -27,7 +27,7 @@ get_valid_codes <- function(d, select.col = "hoveddiagnoser", create.col = "hovd
 
   # Column can have multiple codes. Split them so each column has single code
   dx[, colnr := length(unlist(strsplit(x = col1, split = split))), by = lnr, env = list(col1 = select.col)]
-  cols <- paste0("temp", 1:max(dx$colnr))
+  cols <- paste0("icd_", 1:max(dx$colnr))
   dx[, (cols) := data.table::tstrsplit(x = col1, " "), env = list(col1 = select.col)]
 
   # Trim codes to keep only the first 3 digits
@@ -43,12 +43,15 @@ get_valid_codes <- function(d, select.col = "hoveddiagnoser", create.col = "hovd
   codeURL <- system.file("icd", "validCodes.RDS", package = "fyr")
   codes <- readRDS(codeURL)
 
-  for (j in cols){
-    if (is.character(dx[[j]]))
-      data.table::set(dx, j = j, value = dx[[j]] %chin% codes)
-  }
+  # Keep the codes as it is
+  if (!keep){
+    for (j in cols){
+      if (is.character(dx[[j]]))
+        data.table::set(dx, j = j, value = dx[[j]] %chin% codes)
+    }
 
-  dx[ , (create.col) := rowSums(.SD) > 0, .SDcols = cols]
+    dx[ , (create.col) := rowSums(.SD) > 0, .SDcols = cols]
+  }
 
   oldCol <- paste0(select.col, ".old")
   data.table::setnames(dx, old = c(select.col, tempCol), new = c(oldCol, select.col))
