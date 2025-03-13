@@ -33,6 +33,12 @@ fm <- fread(paste0(pth, "/Data/02_extracted/NPR20240711/24_01903_fmds_til_utleve
 fmd <- readRDS(file.path(pth, "Data/test/test_fmds.rds"))
 som <- readRDS(file.path(pth, "Data/test/test_somatic.rds"))
 
+som[, lopenr := substr(lopenr, nchar(lopenr)-3, nchar(lopenr))]
+fmd[, lopenr := substr(lopenr, nchar(lopenr)-3, nchar(lopenr))]
+## saveRDS(som, "inst//testdata//som.RDS")
+## saveRDS(fmd, "inst//testdata//fmd.RDS")
+
+
 ## Duplikater ---------
 dim(fmd)
 [duplicated(), .N]
@@ -40,3 +46,7 @@ dt1 <- [!duplicated()]
 dim(dt1)
 som[, yr := year(innDato)]
 dt <- som[yr == 2024]
+
+## Testing
+tinytest::run_test_dir()
+tinytest::build_install_test()
