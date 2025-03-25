@@ -48,5 +48,8 @@ som[, yr := year(innDato)]
 dt <- som[yr == 2024]
 
 ## Testing
+usethis::use_github()
+usethis::use_github_action("test-coverage")
+
 tinytest::run_test_dir()
 tinytest::build_install_test()
