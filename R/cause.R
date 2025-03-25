@@ -158,7 +158,7 @@ is_rhf <- function(d1, d2, id, skade, rhf, filter = NULL , days = 3){
              env = list(id = id, date2 = date2, skade = skade, days = days)]
 
   cols <- c(id, rhf)
-  vecRFH <- vector(mode = "list", length = nrow(xDato))
+  vecRHF <- vector(mode = "list", length = nrow(xDato))
 
   for (i in seq_len(nrow(xDato))){
 
@@ -170,13 +170,15 @@ is_rhf <- function(d1, d2, id, skade, rhf, filter = NULL , days = 3){
     x <- d2[lopenr == idx & innDato %between% c(dateFrom, dateTo),
             .(id, rhf), env = list(id = id, rhf = rhf)]
 
-    vecRFH[[i]] <- x
+    vecRHF[[i]] <- x
   }
 
-  dtRHF <- data.table::rbindlist(vecRFH)
+  dtRHF <- data.table::rbindlist(vecRHF)
 
   colDate <- c("dateFrom", rhf)
-  dtRHF[xDato, on = id, (colDate) := mget(colDate), env = list(id = id)]
+
+  if (nrow(dtRHF)!=0)
+    dtRHF[xDato, on = id, (colDate) := mget(colDate), env = list(id = id)]
 
   sufDel <- paste0("xx.DEL", sufx)
   idVec <- unique(dtRHF[[id]])
